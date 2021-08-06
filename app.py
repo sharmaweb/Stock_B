@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri July 20 12:50:04 2021
-@author: Chandra chud singh chundawat
-"""
-
 
 import numpy as np
 import pandas as pd
@@ -22,10 +16,10 @@ def predict_price(final_features):
 	return pred_price
 
 def main():
-	st.title("Apple Inc. Stock Price Prediction")
+	st.title("Stock Price Prediction(APPLE)")
 	html_temp = """
-	<div style="background-color:rgb(0, 238, 255);padding:10px">
-	<h2 style="color:rgb(255, 124, 37);text-shadow: 0 4px 10px rgba(0, 0, 0, 0.603);text-align:center;">Apple Inc. Predicted CLosed Price</h2>
+	<div style="background-color:rgb(238,130,238);padding:10px">
+	<h2 style="color:rgb(199, 21, 133);text-shadow: 0 4px 10px rgba(0, 0, 0, 0.603);text-align:center;">Predicted CLosed Price - Apple</h2>
 	</div>
 	"""
 
@@ -40,7 +34,7 @@ def main():
 	next_day = last_day + datetime.timedelta(days = 1)
 
 	# Taking date input
-	input_date = st.date_input("Enter a Date: ", next_day)
+	input_date = st.date_input("Pick a Date: ", next_day)
 	# Updating Date input
 	input_date = datetime.datetime.strptime(str(input_date) + ' 00:00:00', '%Y-%m-%d %H:%M:%S')
 
@@ -75,7 +69,7 @@ def main():
 
 		# Predict the Close Price
 		result = 0
-		if st.button("Predict"):
+		if st.button("Predict the price"):
 			result = predict_price(X_test)
 
 		# undo the scaling
